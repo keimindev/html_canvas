@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="../js/modernizr.js"></script> -->
+  <style>
+    body {
+      margin: 0;
+    }
+    .canvas {
+      width: 500px;
+      height: 300px;
+      background: #eee;
+    }
+  </style>
+   </head>
+
+  <body>
+    <canvas>이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <!-- canvas의 사이즈를 CSS에서 조절하는 것과 html속성 값을 주는 것은 의미가 다르다. -->
+    <!-- 같은 좌표를 찍었지만 css에서 사이즈를 맞춰서 나오는게 달라진다. -->
+    <!-- 고해상도를 위해서 html속성을 배로 만들고 css에서 조절한다. -->
+    <h1>캔버스 사이즈 설정</h1>
+    <canvas class="canvas" width="500" height="300"></canvas>
+    <canvas class="canvas canvas2" width="1000" height="600"></canvas>
+
+    <!-- script -->
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const canvas2 = document.querySelector('.canvas2');
+      const context = canvas.getContext('2d');
+      const context2 = canvas2.getContext('2d');
+
+      context.arc(100, 100, 50, 0, Math.PI*2, false);
+      context2.arc(100, 100, 50, 0, Math.PI*2, false);
+      context.fill();
+      context2.fill();
+    
+      // Canvas 지원 여부 확인
+      //if (Modernizr.canvas) {
+        // console.log('Canvas를 지원하는 브라우저');
+      //}
+      // const canvasText = document.querySelector('canvas');
+      // if (canvasText.getContext) {
+      //   console.log('캔버스 지원');
+      // }
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
