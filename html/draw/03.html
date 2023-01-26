@@ -15,20 +15,22 @@
     <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
 
     <script>
+      //호도각을 써줘야한다.
       function 라디안(각도) {
         return 각도 * Math.PI / 180;
       }
-      // beginPath
+      // beginPath : auto close path 담겨있음
       // arc
       // closePath
       const canvas = document.querySelector('.canvas');
       const context = canvas.getContext('2d');
       context.beginPath();
+      // 300 * 200 에 반지름 50 , 0에서 360도 각도, 그려지는 방향이 시계방향
       context.arc(300, 200, 50, 0, 라디안(360), false);
       context.stroke();
       context.beginPath();
-      context.arc(500, 100, 20, 0, 라디안(360), false);
-      context.stroke();
+      context.arc(500, 100, 20, 0, 라디안(50), true);
+      context.fill();
     </script>
   </body>
 </html>

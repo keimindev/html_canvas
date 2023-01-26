@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .canvas {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+<h1>requestAnimationFrame</h1>
+<canvas class="canvas" width="500" height="300"></canvas>
+
+<script>
+    const canvas = document.querySelector('.canvas');
+    const context = canvas.getContext('2d');
+    let xPos = 10;
+    let count = 0;
+    let timerId;
+
+    function draw() {
+        if (count % 10 === 0) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+            context.arc(xPos, 150, 10, 0, Math.PI*2, false);
+            context.fill();
+            xPos += 10;
+            // xPos = xPos + 3;
+        }
+
+        count++;
+
+
+        //javascript 메소드
+        //브라우저에게 수행하기를 원하는 애니메이션을 알리고 다음 리페인트가 진행되기 전에 해당 애니메이션을 업데이트하는 함수를 호출하게 합니다. 이 메소드는 리페인트 이전에 실행할 콜백을 인자로 받습니다.
+        timerId = requestAnimationFrame(draw);
+
+        //draw 안에 requestAnimationFrame 이 들어가있기때문에 무한으로 draw가 되는 것
+        //밖에도 draw가 있다.
+
+
+    }
+
+     // setInterval을 써도 requestAnimationFrame 을 쓴것과 똑같은 결과가 나오지만 최적화등이 안되서 큰 용량을 돌릴경우 문제가 생길 요지가 있다
+     // setInterval을 쓰면 간단한데 왜 안쓰죠? 상황에 따라서 다르고, 움직이는 객체가 다양하다면 서로 움직이는 시간이 서로 다를수 있다. 그러면 requestAnimationFrame을 사용하면 좋다. setInterval을 여러번쓰면 부하가 생긴다
+     // timerId = setInterval(draw, 500);
+
+     draw();
+
+    //애니메이션 멈출때
+    canvas.addEventListener('click', () => {
+        cancelAnimationFrame(timerId);
+    });
+
+
+</script>
+</body>
+</html>
+

@@ -16,8 +16,8 @@
 
     <script>
       // beginPath
-      // moveTo
-      // lineTo
+      // moveTo : path 만들기
+      // lineTo : path 만들기
       // closePath
       const canvas = document.querySelector('.canvas');
       const context = canvas.getContext('2d');
@@ -25,9 +25,9 @@
       context.beginPath();
       context.moveTo(100, 100);
       context.lineTo(300, 200);
+      //stroke 넣어야 선이 나온다
       context.stroke();
       context.closePath();
-      // context.fill();
     </script>
   </body>
 </html>

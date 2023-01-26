@@ -17,15 +17,17 @@
     <script>
       // fillRect : 사각형 그리기
       // clearRect : 그린 사각형 지우기. 지우고자하는 위치를 x,y,로 넣어준다
-      // strokeRect : 선 그리기 
+      // strokeRect : 선 그리기
       const canvas = document.querySelector('.canvas');
       const context = canvas.getContext('2d');
 
-      
+
       context.fillRect(50, 50, 100, 100);
       //사각형에 색상 넣기. fillRect 뒤에 넣으면 제대로 작동안함. 전에 널어줘야함
       context.fillStyle = 'red';
       context.fillRect(0, 0, 100, 100);
+
+      //80 80 x y 위치에 50 50 사이즈를 지워낸것
       context.clearRect(80, 80, 50, 50);
       context.strokeRect(150, 150, 100, 100);
     </script>
